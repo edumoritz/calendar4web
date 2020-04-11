@@ -17,6 +17,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   }
 ```
 ## Run Back-end
+You need create the slqlite3 database with the command:
+  $ knex migrate:latest
+
 ``` java
 "scripts": {
     "start": "nodemon src/server.js",
@@ -31,4 +34,4 @@ If you run the electron the backend runs alone through main.js
 ![Calendar4Web- Animated gif demo](demo/demo.gif)
 
 ## Licenses
-- Copyright (C) 2020 eduardo.moritz <eduardo.moritz@hotmail.com>
+- Copyright (C) 2020 <eduardo.moritz@hotmail.com>
