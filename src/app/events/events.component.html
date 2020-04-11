@@ -1,0 +1,91 @@
+<div class="container">
+
+  <h1>Cadastro de Eventos</h1>
+
+  <mat-divider></mat-divider>
+
+  <form [formGroup]="formulario">
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Cor Primaria</th>
+          <th>Cor Secundaria</th>
+          <th>Data Inicial</th>
+          <th>Data Final</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              maxlength="100"
+              formControlName="titulo"
+              (change)="changeTitle($event.target.value)"
+              (keyup)="refresh.next()">
+          </td>
+          <td>
+            <input
+            type="color"
+            formControlName="cor_primaria"
+            (change)="changeColorP($event.target.value)"
+            (keyup)="refresh.next()">
+          </td>
+          <td>
+            <input
+              type="color"
+              formControlName="cor_secundaria"
+              (change)="changeColorS($event.target.value)"
+              (keyup)="refresh.next()">
+          </td>
+          <td>
+            <input
+              mwlFlatpickr
+              class="form-control"
+              type="text"
+              formControlName="data_inicio"
+              (change)="changeStart($event.target.value)"
+              [altInput]="true"
+              [convertModelValue]="true"
+              [enableTime]="true"
+              dateFormat="d/m/Y H:i"
+              altFormat="F j, Y H:i"
+              placeholder="Not set" />
+          </td>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="data_fim"
+              mwlFlatpickr
+              (change)="changeEnd($event.target.value)"
+              [altInput]="true"
+              [convertModelValue]="true"
+              [enableTime]="true"
+              dateFormat="d/m/Y H:i"
+              altFormat="F j, Y H:i"
+              placeholder="Not set" />
+          </td>
+          <td>
+            <button
+              class="btn btn-info"
+              (click)="onSubmit();">
+              Enviar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </form>
+
+
+  <mt-snackbar></mt-snackbar>
+
+</div>
+

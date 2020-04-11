@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>
+  <b>Informações do Paciente</b><br>
+  {{data.nome}} {{data.sobrenome}}
+</h1>
+<mat-dialog-content>
+<mat-list>
+
+  <mat-list-item>
+    <h3 mat-subheader><b>Nascimento</b></h3>
+    <mat-icon mat-list-icon>date_range</mat-icon>
+    <h4 mat-line>{{data.data_nasc | date: 'dd/MM/yyyy'}}</h4>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <h3 mat-subheader><b>Telefone</b></h3>
+    <mat-icon mat-list-icon>phone</mat-icon>
+    <h4 mat-line>{{data.telefone}}</h4>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <h3 mat-subheader><b>Celular</b></h3>
+    <mat-icon mat-list-icon>stay_current_portrait</mat-icon>
+    <h4 mat-line>{{data.celular}}</h4>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <h3 mat-subheader><b>Email</b></h3>
+    <mat-icon mat-list-icon>alternate_email</mat-icon>
+    <h4 mat-line>{{data.email}}</h4>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+      <h3 mat-subheader><b>Comentário</b></h3>
+      <mat-icon mat-list-icon>comments</mat-icon>
+      <br mat-line *ngIf="data.comentario.length > 40">
+      <p mat-line>{{data.comentario}}</p>
+      <br mat-line *ngIf="data.comentario.length > 40">
+  </mat-list-item>
+  <mat-divider *ngIf="!last"></mat-divider>
+</mat-list>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

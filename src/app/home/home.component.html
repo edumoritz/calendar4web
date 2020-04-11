@@ -1,0 +1,29 @@
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav class="sidenav">
+      <mat-toolbar color="primary" class="mat-elevation-z2">
+          Menu
+      </mat-toolbar>
+
+      <home-resources
+        [isMenu]="true"
+        (close)="sidenav.close()">
+        <mat-divider></mat-divider>
+      </home-resources>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <home-header [sidenav]="sidenav"></home-header>
+
+    <router-outlet></router-outlet>
+
+    <footer class="footer">
+      <span>&copy; 2020 Eduardo Moritz</span>
+    </footer>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+

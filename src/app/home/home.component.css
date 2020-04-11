@@ -1,0 +1,12 @@
+.sidenav-container {
+  height: 100vh;
+  width: 100vw;
+}
+.sidenav {
+  width: 320px;
+}
+.footer {
+  text-align: center;
+  color: #777777;
+  margin-top: 20px;
+}

@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+}
+mat-dialog-actions {
+  margin-top: 30px;
+  float:right
+}
+mat-list-item{
+  overflow: hidden;
+}
+p {
+  white-space: pre-wrap !important;     /* Modern browsers */
+  padding: 0 50px;
+}

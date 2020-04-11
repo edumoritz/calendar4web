@@ -1,0 +1,87 @@
+<div class="container">
+  <h1>Cadastro de Pacientes</h1>
+
+  <mat-divider></mat-divider>
+
+
+  <form [formGroup]="formulario">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" formControlName="nome" maxlength="15" placeholder="Digite aqui..."
+      (keydown.esc)="reset()"/>
+      <mat-icon matSuffix>face</mat-icon>
+      <mat-error *ngIf="name.touched && name.hasError('required')">
+        O nome é obrigatório.
+      </mat-error>
+      <mat-error *ngIf="name.touched && name.hasError('minlength')">
+        Minímo de 3 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput type="text" formControlName="sobrenome" maxlength="15" placeholder="Digite aqui..."
+      (keydown.esc)="reset()"/>
+      <mat-icon matSuffix>face</mat-icon>
+      <mat-error *ngIf="lastname.touched && lastname.hasError('required')">
+        O sobrenome é obrigatório.
+      </mat-error>
+      <mat-error *ngIf="lastname.touched && lastname.hasError('minlength')">
+        Minímo de 3 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" maxlength="50" placeholder="Exp: teste@hotmail.com"
+        (keydown.esc)="reset()"/>
+      <mat-icon matSuffix>alternate_email</mat-icon>
+      <mat-error *ngIf="address.touched && address.hasError('email')">
+        Email inválido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Selecione a data.." format="dd/MM/yyyy" (dateInput)="addEvent($event)"
+        (dateChange)="addEvent($event)" formControlName="data_nasc" (keydown.esc)="reset()" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input matInput type="tel" formControlName="telefone" maxlength="15" placeholder="Exp: (99) 9999-9999"
+        (keydown.esc)="reset()" />
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput type="tel" formControlName="celular" maxlength="15" placeholder="Exp: (99) 99999-9999"
+        (keydown.esc)="reset()" />
+      <mat-icon matSuffix>stay_current_portrait</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Comentário</mat-label>
+        <textarea matInput type="text" #message formControlName="comentario" id="comentario" maxlength="100"
+          (keydown.esc)="reset()"
+          (keydown.enter)="onSubmit()"
+          placeholder="Digite aqui...">
+        </textarea>
+      <mat-icon matSuffix>comments</mat-icon>
+      <mat-hint align="end">{{message.value.length}} / 100</mat-hint>
+    </mat-form-field>
+
+  </form>
+  <div class="button-row">
+    <button mat-raised-button (click)="reset()">Reset</button>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid"
+        (click)="onSubmit()">Gravar</button>
+  </div>
+  <mt-snackbar></mt-snackbar>
+</div>
+
